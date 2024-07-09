@@ -1,0 +1,49 @@
+IAM policies:
+    If you have an IAM group, called 'Developers', all members that are part of that IAM group inherit the policies from that group. A policy in an
+    IAM group dictates what users of that group are able to do.  
+    An IAM policy is structured as JSON. 
+
+    Consists of:
+        Version: Policy language version
+        Id: A policy identifier
+        Statement: One or more individual statements
+
+    Statement consists of:
+        Sid: an identifier for the statement
+        Effect: Whether the statement allows or denies access
+        Principal: Account/user/role to which this policy applies
+        Action: List opf actions this policy allows or denies
+        Resources: List of resources to which the actions apply
+        Condition: Conditions for when this policy is in effect
+
+    
+IAM - Password policy
+    Stronger password theoretically makes a stronger account
+    In AWS, you can set up a password policy:
+        Set a minimum password length
+        Require specific character types:
+            Includes upper case letters 
+            Lower case letters
+            Numbers
+            Non-alphanumeric characters
+    Requires all users to change their password after some time (expiration policy)
+    Allow all IAM users to change their own passwords
+    Prevent password re-use
+
+
+    MFA:
+        Password you know + security device that you own: we want to protect our root account and IAM user account(s)
+        Main benefit of MFA:
+            If a password is stolen or hacked, the account is not compromised
+
+        MFA devices options in AWS:
+            Virtual MFA device:
+                Google Authenticator
+                Authy: 
+                    Support for multiple tokens on a single device
+
+            U2F security key (physical key):
+                Supports multiple root and IAM users using a single security key
+
+            Hardware key fob MFA device
+            Hardware key fob MFA device for AWS GovCloud
